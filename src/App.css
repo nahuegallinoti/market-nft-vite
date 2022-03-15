@@ -1,0 +1,9 @@
+body {
+  background-color: rgba(20, 44, 61, 0.972);
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-nft {
+  display: flex;
+  flex-direction: column;
+}

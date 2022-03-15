@@ -1,0 +1,34 @@
+{
+  "name": "nft_market",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "lint": "eslint --fix . --ext .js,jsx,ts,tsx"
+  },
+  "dependencies": {
+    "antd": "^4.18.9",
+    "ethers": "^5.5.4",
+    "noty": "^3.2.0-beta-deprecated",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.2.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.29.2",
+    "prettier": "^2.5.1",
+    "vite": "^2.8.0"
+  }
+}
