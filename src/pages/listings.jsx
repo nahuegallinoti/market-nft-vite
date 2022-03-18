@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
 import Listings from '../components/Listings';
+import { Text, Center } from '@chakra-ui/react';
 
 const ListingsPage = () => {
   return (
     <>
-      <Header name='My Listings' colorTitle='white' />
-      <DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        My Listings
+      </Text>
+      <Center>
         <Listings />
-      </DivCenter>
+      </Center>
     </>
   );
 };

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { MainTitle } from '../Navbar/NavbarElements';
-import { DivCenter } from '../_Shared/styles/GlobalElements';
-
 import lungoTokenABI from '../_Shared/contracts/LungoToken.json';
 import { LUNGO_TOKEN_CONTRACT_ADDRESS } from '../../services/funcs/contractsInfo';
 
 import GetContractInstance from '../../services/ContractFactory';
 import { formatEther } from '../../services/funcs/funcs';
+import { Text } from '@chakra-ui/react';
 
 function AccountData(props) {
   const { address } = props;
@@ -31,12 +29,8 @@ function AccountData(props) {
 
   return (
     <div>
-      <MainTitle colorTitle='white'>Wallet Connected: {address}</MainTitle>
-      <DivCenter>
-        <MainTitle colorTitle='white'>
-          Wallet Balance: {balance + ' ' + symbol}
-        </MainTitle>
-      </DivCenter>
+      <Text fontSize='4xl'>Wallet Connected: {address}</Text>
+      <Text fontSize='4xl'>Wallet Balance: {balance + ' ' + symbol}</Text>
     </div>
   );
 }

@@ -10,9 +10,6 @@ import {
 import marketABI from '../_Shared/contracts/MarketNFT.json';
 import nftABI from '../_Shared/contracts/LungoNFT.json';
 
-import { Button } from 'antd';
-import { DivCenter } from '../_Shared/styles/GlobalElements';
-import { MintButton } from '../Navbar/NavbarElements';
 import './Listings.css';
 
 import { GetNFTImageById } from '../../services/funcs/nftContractFunctions';
@@ -24,6 +21,7 @@ import {
 import GetContractInstance from '../../services/ContractFactory';
 
 import { formatEther, showNotification } from '../../services/funcs/funcs';
+import { Button } from '@chakra-ui/react';
 
 const Listings = () => {
   const { account } = useContext(AccountContext);
@@ -103,9 +101,7 @@ const Listings = () => {
   return nftLoaded ? (
     nftListed.map((nft, index) => (
       <>
-        <DivCenter key={index}>
-          <NFT nft={nft} />
-        </DivCenter>
+        <NFT nft={nft} key={index} />
         <Button
           className='nft-button'
           onClick={async () => await deslist(nft.list_id)}>
@@ -114,7 +110,7 @@ const Listings = () => {
       </>
     ))
   ) : (
-    <MintButton onClick={async () => showList()}>Show Listings</MintButton>
+    <Button onClick={async () => showList()}>Show Listings</Button>
   );
 };
 

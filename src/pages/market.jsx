@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
 import MarketNFT from '../components/MarketNFT';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
+import { Text, Center } from '@chakra-ui/react';
 
 const MarketPage = () => {
   return (
     <>
-      <Header name='Market' colorTitle='white' />
-      <DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        Market
+      </Text>
+      <Center>
         <MarketNFT />
-      </DivCenter>
+      </Center>
     </>
   );
 };

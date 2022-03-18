@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
 import NFTData from '../components/NFTData/nftData';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
+import { Text, Center } from '@chakra-ui/react';
 
 const MyNFTPage = () => {
   return (
     <>
-      <Header name='My NFTs' colorTitle='white' />
-      <DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        My NFTs
+      </Text>
+      <Center>
         <NFTData />
-      </DivCenter>
+      </Center>
     </>
   );
 };

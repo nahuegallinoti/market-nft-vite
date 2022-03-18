@@ -4,10 +4,6 @@ import { AccountContext } from '../Context/AccountContext';
 
 import NFT from '../_Shared/NFT';
 
-import { Button } from 'antd';
-import { MainTitle } from '../Navbar/NavbarElements';
-import { DivCenter } from '../_Shared/styles/GlobalElements';
-
 import {
   MARKETPLACE_CONTRACT_ADDRESS,
   LUNGO_NFT_CONTRACT_ADDRESS,
@@ -18,6 +14,7 @@ import nftABI from '../_Shared/contracts/LungoNFT.json';
 import GetContractInstance from '../../services/ContractFactory';
 import { GetNFTSByAddress } from '../../services/funcs/nftContractFunctions';
 import { showNotification } from '../../services/funcs/funcs';
+import { CircularProgress, Button, Wrap, WrapItem } from '@chakra-ui/react';
 
 const NFTData = () => {
   const { account } = useContext(AccountContext);
@@ -80,32 +77,33 @@ const NFTData = () => {
         .catch(err => {
           showNotification('error', `Buy approve failed ${err.data.message}`);
         });
+
+      // nfts.pop(x => x.token_id === tokenId);
     } else {
       showNotification('error', `You must approve this token before listing`);
     }
   };
 
   return nftsLoaded ? (
-    nfts.map((nft, index) => (
-      <>
-        <DivCenter key={index}>
-          <NFT nft={nft} />
-        </DivCenter>
-        <Button
-          className='nft-button'
-          onClick={async () => await approveSell(nft)}>
-          Approve Sell
-        </Button>
-        <Button
-          type='primary'
-          className='nft-button'
-          onClick={async () => await sell(nft)}>
-          Sell
-        </Button>
-      </>
-    ))
+    <Wrap pt={10} pl={50}>
+      {nfts.map((nft, index) => (
+        <>
+          <WrapItem key={index}>
+            <NFT nft={nft} />
+          </WrapItem>
+          <WrapItem>
+            <Button m={3} onClick={async () => await approveSell(nft)}>
+              Approve Sell
+            </Button>
+            <Button m={3} onClick={async () => await sell(nft)}>
+              Sell
+            </Button>
+          </WrapItem>
+        </>
+      ))}
+    </Wrap>
   ) : (
-    <MainTitle colorTitle='white'>Loading...</MainTitle>
+    <CircularProgress isIndeterminate color='green.300' />
   );
 };
 

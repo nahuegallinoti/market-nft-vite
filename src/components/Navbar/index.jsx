@@ -5,18 +5,20 @@ import {
   Nav,
   NavLogo,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
-  TitleAccount,
 } from './NavbarElements';
+
+import { useColorMode, Text, Button, Box } from '@chakra-ui/react';
 
 const Navbar = () => {
   const { ethereum } = window;
 
   const [refresh, setRefresh] = useState(false);
   const { account, setAccount } = useContext(AccountContext);
+
+  const { toggleColorMode } = useColorMode();
 
   ethereum.on('accountsChanged', () => {
     setAccount(ethereum.selectedAddress);
@@ -35,11 +37,8 @@ const Navbar = () => {
 
   return (
     <>
-      <Nav className={'navLogo'}>
-        <NavLogo className={'navLogo'} to='/login'>
-          Lungo
-        </NavLogo>
-        <Bars />
+      <Nav>
+        <NavLogo to='/login'>Lungo</NavLogo>
 
         <NavMenu>
           <NavLink to='/mint' activestyle={{ color: 'black' }}>
@@ -58,11 +57,18 @@ const Navbar = () => {
             Staking
           </NavLink>
           <NavBtn>
-            <TitleAccount>{account}</TitleAccount>
             <NavBtnLink onClick={() => handleConnection()} to='/login'>
-              <span>{account ? 'Logout' : 'Connect Account'}</span>
+              {account ? 'Logout' : 'Connect Account'}
             </NavBtnLink>
           </NavBtn>
+          <Button _focus={'outline: none'} onClick={toggleColorMode}>
+            🌙
+          </Button>
+          <Box>
+            <Text fontSize='1xl' color={'white'} ml={30}>
+              {account}
+            </Text>
+          </Box>
         </NavMenu>
       </Nav>
     </>

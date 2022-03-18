@@ -1,4 +1,3 @@
-import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -32,20 +31,6 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   &:hover {
     color: grey;
-  }
-`;
-
-export const Bars = styled(FaBars)`
-  display: none;
-  color: #fff;
-  @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 75%);
-    font-size: 1.8rem;
-    cursor: pointer;
   }
 `;
 
@@ -84,33 +69,4 @@ export const NavBtnLink = styled(Link)`
     background: #fff;
     color: #808080;
   }
-`;
-
-export const MainTitle = styled.h1`
-  color: ${props => (props.colorTitle ? props.colorTitle : 'black')};
-  font-size: ${props => (props.fontSize ? props.fontSize : '3rem')};
-`;
-
-export const CursorLink = styled.h1`
-  color: white;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const MintButton = styled.button`
-  border-radius: 15px;
-  color: #ffffff;
-  font-size: 20px;
-  background: #1f4068;
-  padding: 10px 20px 10px 20px;
-  cursor: pointer;
-`;
-
-export const TitleAccount = styled.span`
-  color: white;
-  font-size: 1.2rem;
-  font-weight: normal;
-  position: absolute;
-  right: 100%;
 `;

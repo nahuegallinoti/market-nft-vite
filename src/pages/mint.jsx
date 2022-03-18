@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
 import MintNFT from '../components/MintNFT';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
+import { Text, Center } from '@chakra-ui/react';
 
 const MintNFTPage = () => {
   return (
     <>
-      <Header name='Mint NFT' colorTitle='white' />
-      <DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        Mint NFT
+      </Text>
+      <Center>
         <MintNFT />
-      </DivCenter>
+      </Center>
     </>
   );
 };

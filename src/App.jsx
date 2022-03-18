@@ -1,4 +1,3 @@
-import 'antd/dist/antd.css';
 import './App.css';
 
 import Navbar from './components/Navbar';

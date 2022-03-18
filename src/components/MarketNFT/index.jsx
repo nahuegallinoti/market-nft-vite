@@ -16,10 +16,8 @@ import { formatEther, showNotification } from '../../services/funcs/funcs';
 import { GetNFTImageById } from '../../services/funcs/nftContractFunctions';
 import GetContractInstance from '../../services/ContractFactory';
 
-import { MainTitle, MintButton } from '../Navbar/NavbarElements';
-import { DivCenter } from '../_Shared/styles/GlobalElements';
-import { Button } from 'antd';
 import './Market.css';
+import { CircularProgress, Button } from '@chakra-ui/react';
 
 const MarketNFT = () => {
   const { account } = useContext(AccountContext);
@@ -159,9 +157,7 @@ const MarketNFT = () => {
   return nftsLoaded ? (
     nftListed.map((nft, index) => (
       <>
-        <DivCenter key={index}>
-          <NFT nft={nft} />
-        </DivCenter>
+        <NFT nft={nft} key={index} />
         <Button
           className='nft-button'
           onClick={async () => await approveBuy(nft)}>
@@ -176,9 +172,9 @@ const MarketNFT = () => {
       </>
     ))
   ) : !nftsLoading ? (
-    <MintButton onClick={async () => showMarket()}>Show Market</MintButton>
+    <Button onClick={async () => showMarket()}>Show Market</Button>
   ) : (
-    <MainTitle colorTitle='white'>Loading...</MainTitle>
+    <CircularProgress isIndeterminate color='green.300' />
   );
 };
 

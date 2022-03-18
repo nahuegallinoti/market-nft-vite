@@ -1,15 +1,16 @@
 import React from 'react';
 import Login from '../components/Login';
-import Header from '../components/Header';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
+import { Text, Center } from '@chakra-ui/react';
 
 const LoginPage = () => {
   return (
     <>
-      <Header name='Account' colorTitle='white' />
-      <DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        Account
+      </Text>
+      <Center>
         <Login />
-      </DivCenter>
+      </Center>
     </>
   );
 };

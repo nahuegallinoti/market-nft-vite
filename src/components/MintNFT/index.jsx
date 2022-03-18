@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
-import { DivCenter, Image } from '../_Shared/styles/GlobalElements';
-import { MainTitle, MintButton } from '../Navbar/NavbarElements';
+import { CircularProgress, Image, Button } from '@chakra-ui/react';
 
 import { LUNGO_NFT_CONTRACT_ADDRESS } from '../../services/funcs/contractsInfo';
 import lungoNftABI from '../_Shared/contracts/LungoNFT.json';
@@ -41,18 +39,17 @@ const MintNFT = () => {
 
   return !isMinting ? (
     <>
-      <DivCenter flexDirection={'column'}>
-        <Image
-          src={'/images/nfts.gif'}
-          width={300}
-          height={300}
-          alt='nft-gif'
-        />
-        <MintButton onClick={mintNftHandler}>Mint NFT</MintButton>
-      </DivCenter>
+      <Image
+        src={'/images/nfts.gif'}
+        width={300}
+        height={300}
+        alt='nft-gif'
+        border={'5px solid black'}
+      />
+      <Button onClick={mintNftHandler}>Mint NFT</Button>
     </>
   ) : (
-    <MainTitle colorTitle='white'>Minting...</MainTitle>
+    <CircularProgress isIndeterminate color='green.300' />
   );
 };
 

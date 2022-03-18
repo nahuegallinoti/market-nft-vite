@@ -1,7 +1,7 @@
+import { Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import AccountData from '../AccountData';
 import { AccountContext } from '../Context/AccountContext';
-import { MainTitle } from '../Navbar/NavbarElements';
 
 const Login = () => {
   const { account } = useContext(AccountContext);
@@ -9,7 +9,7 @@ const Login = () => {
   return account ? (
     <AccountData address={account}></AccountData>
   ) : (
-    <MainTitle colorTitle='white'>Please connect to Metamask</MainTitle>
+    <Text fontSize='4xl'>Please connect to Metamask</Text>
   );
 };
 

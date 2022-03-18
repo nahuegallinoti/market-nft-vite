@@ -1,12 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
-import { DivCenter } from '../components/_Shared/styles/GlobalElements';
+import { Text, Center } from '@chakra-ui/react';
+import Staking from '../components/Staking/staking';
 
 const StakingPage = () => {
   return (
     <>
-      <Header name='Staking' colorTitle='white' />
-      <DivCenter>{/* Componente staking */}</DivCenter>
+      <Text d={'flex'} justifyContent={'center'} mb={'5'} fontSize='5xl'>
+        Staking
+      </Text>
+      <Center>
+        <Staking />
+      </Center>
     </>
   );
 };
